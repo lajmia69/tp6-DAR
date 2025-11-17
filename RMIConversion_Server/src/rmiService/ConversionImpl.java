@@ -4,9 +4,16 @@ import java.rmi.server.UnicastRemoteObject;
 import java.rmi.RemoteException;
 
 public class ConversionImpl extends UnicastRemoteObject implements IConversion {
-    public ConversionImpl() throws RemoteException {}
+
+    private static final double TAUX_EURO_DINAR = 3.4; // Taux de conversion
+
+    public ConversionImpl() throws RemoteException {
+        super();
+    }
+
+    @Override
     public double convertirMontant(double mt) throws RemoteException {
-        // Exemple: taux conversion euro -> dinar = 3.3
-        return mt * 3.3;
+        // Logique de conversion : Euros * Taux
+        return mt * TAUX_EURO_DINAR;
     }
 }
